@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="{{ site.baseurl }}/assets/images/favicon.png">    
+<title>{{ page.title }} | {{site.name}}</title>
+{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}    
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
+<link href="/assets/css/theme.css" rel="stylesheet">
+<link href="/assets/css/custom.css" rel="stylesheet">
+{{site.sharethis}}
+
+</head>
+{% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
+<body class="{{ layout }}">
+
+<!-- Begin Menu Navigation
+================================================== -->
+<header class="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsWow" aria-controls="navbarsWow" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container">
+
+        <!-- Begin Logo -->
+        <a class="navbar-brand" href="{{ site.baseurl }}/">
+        <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}">
+        </a>
+        <!-- End Logo -->
+
+        <!-- Begin Menu -->
+        <div class="collapse navbar-collapse" id="navbarsWow">
+            <!-- Begin Menu -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">                
+                <a class="nav-link" href="{{ site.baseurl }}/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ site.baseurl }}/blog.html">Blog</a>
+                </li>
+                <li class="nav-item">                
+                    <a class="nav-link" href="{{ site.baseurl }}/about.html">About</a>
+                </li> 
+                <li class="nav-item">                
+                    <a class="nav-link" href="{{ site.baseurl }}/contact.html">Contact</a>
+                </li> 
+                
+                 <li class="nav-item">                
+                    <a target="_blank" class="nav-link" href="https://github.com/D4-project/">Github</a>
+                </li> 
+                
+            </ul>
+            <!-- End Menu -->
+            
+        </div>
+    </div>
+</header>
+    
+
+    
+<!-- End Menu Navigation
+================================================== -->
+    
+<div class="site-content">
+    
+    <div class="container">
+
+    <!-- Site Title
+    ================================================== -->
+
+    <div class="mainheading" style="display:none;">
+        <h1 class="sitetitle">{{ site.name }}</h1>
+        <p class="lead">
+             {{ site.description }}
+        </p>
+    </div>
+
+
+    <!-- Content
+    ================================================== --> 
+    <div class="main-content">
+        {{ content }}
+    </div>
+
+    </div><!-- /.container --> 
+
+
+
+    <!-- Before Footer
+    ================================================== --> 
+    <div class="beforefooter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                        <p>"<i>In any case, I would argue that absolute measures are not the goal
+                    in cybersecurity, that relative measures are sufficient for the
+                    simple fact that relative measures -- like is such and such risk
+                    getting worse -- are sufficient for decision support.  This has
+                    parallels in the physical world; no police department will ever
+                    know how much heroin is for sale, but they can tell the price, and
+                    a rising or falling price is sufficient for decision making about
+                    what to do and whether what was already done had a positive effect.</i>"</p>
+                    <p><i> Dan Geer</i> in <a href="http://geer.tinho.net/geer.recordedfuture.7x15.txt">talk</a> 7th October 2015</p>
+                </div>
+                <div class="col-md-4 text-right footersocial">
+                    <h5>Connect with Us</h5>
+                    <a href="https://twitter.com/d4_project"><i class="fa fa-twitter"></i></a>
+                    <a href="https://github.com/D4-project/"><i class="fa fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Begin Footer
+    ================================================== -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-3">
+                <div class="footer-widget">
+                <a href="{{site.baseurl}}/contact">
+                <img src="{{ site.baseurl }}/assets/images/logo-footer.png">
+                </a>
+                </div>
+                </div>
+
+                <div class="col-sm-3">
+                <div class="footer-widget">
+                <h5 class="title">D4 Project</h5>
+                <ul>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                </ul>
+
+                </div>
+                </div>
+
+                <div class="col-sm-3">
+                <div class="footer-widget">
+                </div>
+                </div>
+
+                <div class="col-sm-3">
+                <div class="footer-widget textwidget">
+                    <h5 class="title">Funding/Sponsors</h5>
+                    <p><a href="https://www.circl.lu/">Computer Incident Response Center Luxembourg (CIRCL)</a></p> 
+					<img src="/assets/images/cef_square_small.png" />
+                </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p class="pull-left">
+                Copyright © {{ site.time | date: "%Y" }} {{ site.name }}.
+                </p>
+                <p class="pull-right">
+                <!-- Please, leave credit to author unless you own a commercial license: https://www.wowthemes.net/freebies-license/ --> 
+                <a target="_blank" href="https://www.wowthemes.net/free-jekyll-template-affiliates/">"Affiliates Theme"</a> - Design & Code by WowThemes.net
+                </p>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- End Footer
+    ================================================== -->
+
+</div>
+
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
+<script type='text/javascript' src='/assets/js/masonry.pkgd.min.js'></script>
+<script src="/assets/js/theme.js"></script>
+</body>
+</html>
