@@ -12,15 +12,15 @@ email: 'info@circl.lu'
 #sharethis: '<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a6b2fe4fb197a0011c589f6&product=sticky-share-buttons"></script>'
 
 # Authors
-#authors:
-#  sal:
-#    name: Sal
-#    display_name: Sal
+authors:
+  CIRCL:
+    name: CIRCL
+    display_name: circl
 #    gravatar: e56154546cf4be74e393c62d1ae9f9d4
 #    email: wowthemesnet@gmail.com
-#    web: https://www.wowthemes.net/category/jekyll-themes/
-#    twitter: https://twitter.com/wowthemesnet
-#    description: "Author of Affiliates, a template available for WordPress, HTML, Ghost and Jekyll. You are currently previewing Jekyll template demo."
+    web: https://www.circl.lu/
+    twitter: https://twitter.com/d4_project
+    description: "Computer Incident Response Center Luxembourg (CIRCL)"
 #  john:
 #    name: John
 #    display_name: John
