@@ -40,5 +40,5 @@ The D4 project includes the following activities:
 
 References:
 -  [Program of Luxembourg days](http://www.luxembourg-internet-days.com/program-2018/)
--  Presentation slides - [keynote](./assets/lids-keynote.pdf) [workshop](./assets/lids-workshop.pdf)
+-  Presentation slides - [keynote](/assets/lids-keynote.pdf) [workshop](/assets/lids-workshop.pdf)
 
