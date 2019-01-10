@@ -7,7 +7,7 @@ image: assets/images/LID.jpg
 
 # Launch of the D4 project
 
-The D4 project was presented at the Luxembourg Internet days 2018 at Chamber of
+The D4 project was presented at the Luxembourg Internet days 2018 at chamber of
 commerce by Gérard Wagener the 13th November 2018. He did a small presentation
 about the motivation of the D4 project especially on the incident response
 aspects during denial of service attacks. He presented various observed
