@@ -12,10 +12,12 @@ Building a large-scale network sensor can be a tedious task, the aim of the D4 P
 
 ## Funding
 
-- ![](/assets/images/cef.png)
-- ![](/assets/images/circl.png)
+![](/assets/images/cef.png)
+
+![](/assets/images/circl.png)
 
 ## Partners
 
-- ![](/assets/images/x-isac.png)
-- ![](/assets/images/misp.png)
+![](/assets/images/x-isac.png)
+
+![](/assets/images/misp.png)
