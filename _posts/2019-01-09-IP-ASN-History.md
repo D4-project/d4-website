@@ -3,7 +3,7 @@ layout: post
 title:  "IP ASN History"
 author: CIRCL
 categories: [ open source, asn, history ]
-image: assets/images/6.jpg
+image: assets/images/bgpranking.png
 ---
 
 In the D4 project, a major activity is network packet collection from black hole monitoring. But a major challenge in the analysis is the ability to find back
