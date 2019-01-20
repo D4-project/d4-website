@@ -3,7 +3,7 @@ name: D4 Project
 description: Large-scale distributed sensor network project to monitor DDoS and malicious activities
 meta_description: "Large-scale distributed sensor network project to monitor DDoS and malicious activities"
 logo: 'assets/images/logo.png'
-favicon: 'assets/images/favicon.ico'
+favicon: 'assets/favicon/favicon.ico'
 paginate: 12
 baseurl:
 email: 'info@circl.lu'
