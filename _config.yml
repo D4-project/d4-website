@@ -31,7 +31,7 @@ authors:
 #    description: "This is the author box. Write a short description of the author here. You are currently previewing Affiliates theme demo, a Jekyll template compatible with Github pages."
 
 # Plugins
-plugins:
+plugins_dir:
   - jekyll-paginate
   - jekyll-archives
 
@@ -46,3 +46,5 @@ jekyll-archives:
 # Other
 markdown: kramdown
 highlighter: rouge
+
+gems: [jekyll-paginate]
