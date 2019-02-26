@@ -18,7 +18,7 @@ a new version of the [D4 core server software](https://github.com/D4-project/d4-
 - Custom filter per sensor is now supported;
 - Many improvements in the sensor management and monitoring.
 
-# New release - v0.1 of D4-goclient 
+# New release - v0.1 of D4-goclient
 
 <p align="center">
   <img alt="d4-goclient" src="https://raw.githubusercontent.com/D4-project/d4-goclient/master/media/gopherd4.png" width="140" />
@@ -29,7 +29,7 @@ a new version of the [D4 core server software](https://github.com/D4-project/d4-
   </p>
 </p>
 
-We release a first version of the cross-platform Go client. It has the following features:
+We release a first version of the [cross-platform Go client](https://github.com/D4-project/d4-goclient). It has the following features:
 
  - Encapsulates whatever it is given in input with D4 protocol;
  - Retries on connection lost;
