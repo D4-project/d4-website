@@ -40,7 +40,7 @@ CIRCL/SMILE g.i.e, HSBC building, 2nd floor
 | 10:15 - 10:45  | D4 Project - Open and collaborative network monitoring |
 | 10:45 - 11:45  | Building passive DNS network based on D4               |
 | 11:45 - 12:00  | Passive DDoS identification techniques                 |
-| 12:00 - 13:30  | Launch break                                           |
+| 12:00 - 13:30  | Lunch break                                           |
 | 14:00 - 15:00  | Ongoing D4 activities                                  |
 | 15:00 - 17:00  | Open discussions                                       |
 | 17:00          | Closing                                                |
