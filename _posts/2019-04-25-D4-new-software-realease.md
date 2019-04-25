@@ -43,23 +43,40 @@ further improvements.
 
 ## [BGP Ranking 1.0](https://github.com/D4-project/BGP-Ranking/releases/tag/1.0)
 
-* Complete port of BGP Ranking to python 3.6
+* port of BGP Ranking to python 3.6
 * ARDB back end
 
 # New Software
 
+## [analyzer-d4-pibs](https://github.com/D4-project/analyzer-d4-pibs/releases/tag/v0.1)
+Reads pcap files and identify potential DDOS related traffic such as backscatter.
+
+* consumes pcap files, identify potential backscatter and displays it on standard output
+* writes potential DDOS traffic in pcap file
+
+
 ## [sensor-d4-tls-fingerprinting 0.1](https://github.com/D4-project/sensor-d4-tls-fingerprinting/releases) 
+
+Extracts TLS certificates from pcap files or network interfaces, fingerprint TLS client/server interactions with ja3/ja3s.
 
 * extracts TLS certificates from pcap files or network interfaces
 * fingerprints TLS client/server interactions with ja3/ja3s
-* fingerprints TLS interactions with TLSH fuzzy hashing
-* write certificates in a folder
-* export in JSON to files, or stdout
+* fingerprints TLS interactions with [TLSH fuzzy hashing](https://github.com/trendmicro/tlsh)
+* writes certificates in a folder
+* exports in JSON to files, or stdout
 
-## [analyzer-d4-passivessl](https://github.com/D4-project/analyzer-d4-passivessl/releases/tag/0.1)
+## [analyzer-d4-passivessl 0.1](https://github.com/D4-project/analyzer-d4-passivessl/releases/tag/0.1)
+Fetchs a redis feed of certificate and TLS sessions and massage the dataset to be usable by the forseen passivessl webservice.
 
-* create a Postgresql database that stores data about TLS sessions, certificates (and chains of certificates), public keys, and related fuzzyhashes provided by sensor-d4-tls-fingerprinting
-* provide Postgres function to query sessions by TLSH fuzzy hash / threshold
-* fetch TLS sessions from a d4-core server redis queue
-* fetch TLS sessions from a folder containing their json descriptions
+* creates a Postgresql database that stores data about TLS sessions, certificates (and chains of certificates), public keys, and related fuzzyhashes provided by sensor-d4-tls-fingerprinting
+* provides Postgres function to query sessions by TLSH fuzzy hash / threshold
+* fetches TLS sessions from a d4-core server redis queue
+* fetches TLS sessions from a folder containing their json descriptions
+
+## [d4-server-packer 0.1](https://github.com/D4-project/d4-server-packer/releases/tag/0.1)
+Packs up d4-core server Virtual Machines.
+
+* sets up a ready to use d4-core server
+* packs up an Open Virtual Appliance for Virtual Box
+
 
