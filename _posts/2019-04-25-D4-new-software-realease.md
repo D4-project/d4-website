@@ -3,7 +3,7 @@ layout: post
 title:  "D4 software stack - new version released"
 author: CIRCL
 categories: [ d4, sensor network, d4 project, core software ]
-image: assets/images/d4-sensors.jpg
+image: assets/images/sensor.png
 ---
 
 Following the Programming Methodology Framework aka
