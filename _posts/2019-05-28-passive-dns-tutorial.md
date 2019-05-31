@@ -4,6 +4,7 @@ date: 2019-05-28
 layout: post
 categories: 
 tags: 
+image: assets/images/d4-sensors.jpg
 ---
 
 # Table of Contents
