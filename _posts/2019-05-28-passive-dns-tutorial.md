@@ -468,6 +468,9 @@ To kill the server use:
 
     ./LAUNCH.sh -k
 
+# Conclusion
+
+This tutorial gives the basis to setup a simple and complete sensor network relying on D4 Project software along with existing open source tools. Our objective is to open the gate to new ideas of collection, analysis and sharing. Don't hesitate to reach out to us if you have any ideas, remarks or feedback.
 
 <a id="org3959502"></a>
 
