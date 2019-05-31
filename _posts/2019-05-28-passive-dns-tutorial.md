@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Passive DNS"
+title: "Passive DNS - a tutorial to setup your own Passive DNS using D4 Project"
 date: 2019-05-28
 layout: post
 categories: 
@@ -21,8 +21,7 @@ tags:
     1.  [C version](#orga42d98c)
     2.  [d4-goclient](#org167865b)
 
-A passive DNS is a service that records DNS requests made over time, as well as their corresponding answers.
-
+A passive DNS is a service which records historical DNS answers from various sources. Then the DNS historical data is indexed which makes it searchable for incident handlers, network/security analysts or researchers. At D4 Project, we provide a set of open source components to build sensor networks. This tutorial shows how to the setup your own Passive DNS sensor network and database using only open source software.
 
 <a id="org363a15f"></a>
 
