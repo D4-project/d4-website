@@ -466,14 +466,14 @@ All logs are located in ./logs
 
 To kill the server use:
 
-    ./LAUCNH.sh -k
+    ./LAUNCH.sh -k
 
 
 <a id="org3959502"></a>
 
 # Appendix : Installing a sensor
 
-There are two clients available for creating a D4 sensor: 
+There are two clients available for creating a D4 sensor:
 
 -   the one included in [d4-core](https://github.com/D4-project/d4-core/tree/master/client), written in C,
 -   [d4-goclient](https://github.com/D4-project/d4-goclient) that you already used during this tutorial.
@@ -497,7 +497,7 @@ To install the C client, do the following:
     make d4
 
 The config files work in the same manner as the Go client. The main different is
-that the C client does not provide TLS connectivity by itself. 
+that the C client does not provide TLS connectivity by itself.
 
 Therefore in order to ship D4 encapsulated data to a remote server, one needs to
 pipe the output of the client into socat or netcat:
