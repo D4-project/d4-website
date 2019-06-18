@@ -8,14 +8,14 @@ tags:
 
 # Table of Contents
 
-1.  [Architecture Overview](#org49d213c)
-2.  [Network Collection](#org320be59)
-3.  [Preparing the private D4 server](#org0e4d1b2)
-4.  [Analysis](#orgf1603da)
-    1.  [analyzer-d4-stdout](#org92e8e8c)
-    2.  [tcprewrite](#orgf62b20f)
-    3.  [d4-client](#orgf54e5d8)
-5.  [DDoS Analysis Public server](#orgcf8b6ef)
+1.  [Architecture Overview](#org464b9ee)
+2.  [Network Collection](#org9d57712)
+3.  [Preparing the private D4 server](#org7a9f3f4)
+4.  [Analysis](#orga2c420c)
+    1.  [analyzer-d4-stdout](#org84f3222)
+    2.  [tcprewrite](#org85e9a51)
+    3.  [d4-client](#org9fb010a)
+5.  [DDoS Analysis Public server](#org4c466e8)
 
 [D4-core](https://github.com/D4-project/d4-core) introduced a new feature recently: a default analyzer to write directly
 to standard output. This allows the piping of D4 output streams into any other
@@ -25,7 +25,7 @@ We apply this data flow and processing to network captures, but it applies to
 other type of data supported by D4 (eg. passiveDNS, passiveSSL, etc.)
 
 
-<a id="org49d213c"></a>
+<a id="org464b9ee"></a>
 
 # Architecture Overview
 
@@ -81,14 +81,20 @@ The area of interest are the following (red circles on the picture above):
 </tbody>
 </table>
 
-**Follow along**: You can use the updated version of the [passidns tutorial](http://localhost:4000/2019/05/28/tuto-pdns.html)'s [virtal machine](https://www.circl.lu/assets/files/D4_DEMO-1.ova) (sha256):
+<br>
+**Follow along**: You can use the passivedns tutorial [virtual machine](https://d4-project.org/2019/05/28/passive-dns-tutorial.html#org35fa5e8). You need to
+update d4-core first:
 
+``` shell
+$ cd ~/d4-core
+$ git pull
+```
 
-<a id="org320be59"></a>
+<a id="org9d57712"></a>
 
 # Network Collection
 
-Let first dig into the network collection: we use `tcpdump` to collect packets,
+Let's first dig into the network collection: we use `tcpdump` to collect packets,
 and the default [Clang client](https://github.com/D4-project/d4-core/tree/master/client) or the [Golang client](https://github.com/D4-project/d4-goclient) to forward packets to the
 public D4 server ([HOWTO install](https://d4-project.org/2019/05/28/passive-dns-tutorial.html#org3959502)).
 
@@ -129,11 +135,13 @@ public D4 server ([HOWTO install](https://d4-project.org/2019/05/28/passive-dns-
 </tbody>
 </table>
 
+<br>
 -   Clang client:
 
 The Clang client requires to have a relay, here we use `socat`:
-
-    $ sudo tcpdump -n -s0 -w - | ./d4 -c ./conf | socat - OPENSSL-CONNECT:$D4-SERVER-IP-ADDRESS:$PORT,verify=0
+```shell
+$ sudo tcpdump -n -s0 -w - | ./d4 -c ./conf | socat - OPENSSL-CONNECT:$D4-SERVER-IP-ADDRESS:$PORT,verify=0
+```
 
 Use the command above and in the ./conf folder create the following files:
 
@@ -206,11 +214,14 @@ Use the command above and in the ./conf folder create the following files:
 </tbody>
 </table>
 
+<br>
 -   Golang client:
 
-    $ sudo tcpdump -n -s0 -w - | ./d4-goclient -c ./conf
+``` shell
+$ sudo tcpdump -n -s0 -w - | ./d4-goclient -c ./conf
+```
 
-With the Clang client, use the command above and in the ./conf folder create the following files:
+With the Golang client, use the command above and in the ./conf folder create the following files:
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -282,7 +293,7 @@ With the Clang client, use the command above and in the ./conf folder create the
 </table>
 
 
-<a id="org0e4d1b2"></a>
+<a id="org7a9f3f4"></a>
 
 # Preparing the private D4 server
 
@@ -290,7 +301,7 @@ In order to have a analyzer for network caputes, the public D4 server needs to
 have a redis queue for `type 1` data. Once the server is launched, point your browser to
 <http://127.0.0.1:7000/server_management> and create a new queue as follows:
 
-![img](/assets/images/create-new-analyzer.png "Create a new analyzer queue")
+<img src="/assets/images/create-new-analyzer.png" title="Create a new analyzer queue" width="250" >
 
 To obtain a new redis queue for your analyzer to consume:
 
@@ -305,7 +316,7 @@ queue:
 ![img](/assets/images/analyzer-queue-detail.png "Detail")
 
 
-<a id="orgf1603da"></a>
+<a id="orga2c420c"></a>
 
 # Analysis
 
@@ -317,7 +328,7 @@ Let's build the analyzer command from the ground up, keep in mind that:
 -   forwards the result the public D4 server.
 
 
-<a id="org92e8e8c"></a>
+<a id="org84f3222"></a>
 
 ## analyzer-d4-stdout
 
@@ -326,7 +337,9 @@ queue and outputting its content on standard output. Used with the `- f` flag,
 it behaves differently: it streams the content of files pointed out by the redis
 queue.
 
-    $ ./d4-stdout.py -t 1 -u 84723644-0841-4580-97e9-23e98682739c  -f 
+```shell
+$ ./d4-stdout.py -t 1 -u 84723644-0841-4580-97e9-23e98682739c  -f 
+```
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -365,19 +378,23 @@ queue.
 
 Then we pipe the result in zcat, for to remove compression:
 
-    $ ./d4-stdout.py -t 1 -u 84723644-0841-4580-97e9-23e98682739c  -f | zcat
+```shell
+$ ./d4-stdout.py -t 1 -u 84723644-0841-4580-97e9-23e98682739c  -f | zcat
+```
 
 We are now ready to remove sensitive information from these files.
 
 
-<a id="orgf62b20f"></a>
+<a id="org85e9a51"></a>
 
 ## tcprewrite
 
 `tcprewrite` is part of `tcpreplay`, and is a tool to rewrite packets stored in pcap files.
 In the following we replace private IP addresses with phony ones:
 
-    $ ./d4-stdout.py -t 1 -u 84723644-0841-4580-97e9-23e98682739c -f | zcat | tcprewrite --pnat=10.1.0.0/16:192.168.0.0/16 -i - -o -
+``` shell
+$ ./d4-stdout.py -t 1 -u 84723644-0841-4580-97e9-23e98682739c -f | zcat | tcprewrite --pnat=10.1.0.0/16:192.168.0.0/16 -i - -o -
+```
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -415,17 +432,19 @@ In the following we replace private IP addresses with phony ones:
 </table>
 
 
-<a id="orgf54e5d8"></a>
+<a id="org9fb010a"></a>
 
 ## d4-client
 
 The data is now ready to ship towards the public server! We can now use our
 favorite client for D4 transmission. For instance:
 
-    $ ./d4-stdout.py -t 1 -u 84723644-0841-4580-97e9-23e98682739c -f | zcat | tcprewrite --pnat=10.1.0.0/16:192.168.0.0/16 -i - -o - | d4-goclient -c ~/go/src/github.com/d4-goclient/conf.sample 
+```shell
+$ ./d4-stdout.py -t 1 -u 84723644-0841-4580-97e9-23e98682739c -f | zcat | tcprewrite --pnat=10.1.0.0/16:192.168.0.0/16 -i - -o - | d4-goclient -c ~/go/src/github.com/d4-goclient/conf.sample 
+```
 
 
-<a id="orgcf8b6ef"></a>
+<a id="org4c466e8"></a>
 
 # DDoS Analysis Public server
 
