@@ -2,7 +2,6 @@
 layout: post
 title: "D4 Core Working Group meeting notes"
 author: CIRCL
-categories: [ open source, asn, history ]
 image: assets/images/orangepi.png
 ---
 

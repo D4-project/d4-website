@@ -1,5 +1,5 @@
 ---
-title: "Use-Case: Sharing Publicly"
+title: "Sharing between D4 sensor networks - a simple example to share DDoS backscatter traffic while preserving privacy"
 date: 2019-06-17
 layout: post
 categories: 
@@ -19,11 +19,10 @@ tags:
 
 [D4-core](https://github.com/D4-project/d4-core) introduced a new feature recently: a default analyzer to write directly
 to standard output. This allows the piping of D4 output streams into any other
-UNIX tools, opening the door to more data analyses and data sharing!
+UNIX tools, opening the door to more data analyses and data sharing.
 
 We apply this data flow and processing to network captures, but it applies to
-other type of data supported by D4 (eg. passiveDNS, passiveSSL, etc.)
-
+other type of any data supported by D4 (eg. passive DNS, passive SSL, etc.)
 
 <a id="org464b9ee"></a>
 
@@ -32,7 +31,7 @@ other type of data supported by D4 (eg. passiveDNS, passiveSSL, etc.)
 In the following, we demonstrate data mixing and sanitization of several network
 sensors on a D4 server, as well as the forwarding of the result to another D4
 server. The typical use-case is the hosting of a D4 server in-premises that
-strips out the collected data of personal information before sharing with a
+strips out the collected data of personal information for privacy reason before sharing with a
 public DDoS backscatter-traffic analyzer. See the picture below, the green area
 represents the private perimeter, and the red area the public one.
 
@@ -82,7 +81,7 @@ The area of interest are the following (red circles on the picture above):
 </table>
 
 <br>
-**Follow along**: You can use the passivedns tutorial [virtual machine](https://d4-project.org/2019/05/28/passive-dns-tutorial.html#org35fa5e8). You need to
+**Follow along**: You can use the passive dns tutorial [virtual machine](https://d4-project.org/2019/05/28/passive-dns-tutorial.html#org35fa5e8). You need to
 update d4-core first:
 
 ``` shell
@@ -297,7 +296,7 @@ With the Golang client, use the command above and in the ./conf folder create th
 
 # Preparing the private D4 server
 
-In order to have a analyzer for network caputes, the public D4 server needs to
+In order to have a analyzer for network captures, the public D4 server needs to
 have a redis queue for `type 1` data. Once the server is launched, point your browser to
 <http://127.0.0.1:7000/server_management> and create a new queue as follows:
 
@@ -436,7 +435,7 @@ $ ./d4-stdout.py -t 1 -u 84723644-0841-4580-97e9-23e98682739c -f | zcat | tcprew
 
 ## d4-client
 
-The data is now ready to ship towards the public server! We can now use our
+The data is now ready to ship towards the public server. We can now use our
 favorite client for D4 transmission. For instance:
 
 ```shell
@@ -445,10 +444,4 @@ $ ./d4-stdout.py -t 1 -u 84723644-0841-4580-97e9-23e98682739c -f | zcat | tcprew
 
 
 <a id="org4c466e8"></a>
-
-# DDoS Analysis Public server
-
-We don't cover the deployment of the public server in this article but [CIRCL](http://circl.lu) is
-in the process of building such a server. Please get in touch with us if you
-want to want to beta test the platform.
 
