@@ -2,8 +2,9 @@
 title: "Sharing between D4 sensor networks - a simple example to share DDoS backscatter traffic while preserving privacy"
 date: 2019-06-17
 layout: post
-categories: 
-tags: 
+categories:
+tags:
+image: assets/images/mixing.png
 ---
 
 # Table of Contents
