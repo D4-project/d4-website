@@ -16,7 +16,6 @@ image: assets/images/mixing.png
     1.  [analyzer-d4-stdout](#org84f3222)
     2.  [tcprewrite](#org85e9a51)
     3.  [d4-client](#org9fb010a)
-5.  [DDoS Analysis Public server](#org4c466e8)
 
 [D4-core](https://github.com/D4-project/d4-core) introduced a new feature recently: a default analyzer to write directly
 to standard output. This allows the piping of D4 output streams into any other
