@@ -110,7 +110,7 @@ We distribute a Virtual Machine (VM) for this tutorial (tested under Virtual Box
 6.0&#x2013;please don't use this in production): [Please download from here](https://www.circl.lu/assets/files/D4_DEMO.ova)
 
 ```
-ff215397d757b6dc6351f84c18884383fb5fc5fe1613e42ff6e996327c40b2a7  D4_DEMO.ova
+171c0b5f3fd6314a712eb6a24cc7b04dc5373522d55937a826d1af679037699a  D4_DEMO.ova
 ```
 
 To install your own D4-PassiveDNS instance in production follow the Appendix at the end of this page.
@@ -183,14 +183,24 @@ as a SOCKS5 proxy. Fire up the VM and use a terminal to reach it from the host:
 ssh -D 1337 -E /dev/null d4@127.0.0.1 -p 2222 #d4's account password is 'Password1234'.
 ```
 
-You can use this terminal to interact with the VM. The SOCKS proxy will
-stay accessible as long as this SSH connection remains open.
-
 To use this proxy with any web browser, for instance chromium:
 
 ```bash
 chromium --proxy-server="socks5://127.0.0.1:1337" --proxy-bypass-list="<-loopback>"
 ```
+
+You can use can use this terminal to interact with the VM, the SOCKS proxy will
+stay accessible as long as this SSH connection remains open.
+
+Now that we have a ssh connection opened on the VM, the first step we have to
+perform is to retrieve the D4 admin password generated during the installation:
+
+```bash
+cat d4-core/server/DEFAULT_PASSWORD
+```
+
+This will output the credentials needed to connect for the first time on D4 [web
+interface](https://127.0.0.1:7000) (use a non-proxied web browser).
 
 <a id="orgec39e5c"></a>
 
@@ -202,7 +212,7 @@ chromium --proxy-server="socks5://127.0.0.1:1337" --proxy-bypass-list="<-loopbac
 ## Passive DNS Collection
 
 Two components are used for the collection: [passivedns](https://github.com/gamelinux/passivedns) and [d4-goclient](https://github.com/D4-project/d4-goclient).
-`passivedns` is installed system-wide, for demonstration purpose launch passivedns
+Both are installed system-wide, for demonstration purpose launch passivedns
 using the following command:
 
 ```bash
@@ -294,7 +304,7 @@ combine both commands:
 
 ```bash
 cd ~/go/src/github.com/D4-project/d4-goclient
-sudo passivedns -i eth0 -l /dev/stdout | ./d4-amd64l -c conf.vbox
+sudo passivedns -i eth0 -l /dev/stdout | d4-goclient -c conf.vbox
 ```
 
 **Protip**: change the destination to `stdout` to observe D4 protocol at work! 
@@ -304,7 +314,7 @@ sudo passivedns -i eth0 -l /dev/stdout | ./d4-amd64l -c conf.vbox
 ```bash
 cd ~/go/src/github.com/D4-project/d4-goclient
 screen -dmS "pdns-collection"
-screen -S "pdns-collection" -X screen -t "collection" bash -c "sudo passivedns -i eth0 -l /dev/stdout | ./d4-amd64l -c conf.vbox; read x;"
+screen -S "pdns-collection" -X screen -t "collection" bash -c "sudo passivedns -i eth0 -l /dev/stdout | d4-goclient -c conf.vbox; read x;"
 ```
 
 If you are only interested into how to set up a D4 sensor **congratulations!** you
