@@ -2,8 +2,8 @@
 title: "Maltrail integration"
 date: 2019-09-25
 layout: post
-categories: 
-tags: 
+categories:
+tags:
 ---
 
 # Table of Contents
@@ -90,7 +90,7 @@ To use this proxy with any web browser, for instance chromium:
 chromium --proxy-server="socks5://127.0.0.1:1337" --proxy-bypass-list="<-loopback>"
 {% endhighlight %}
 
-You can use can use this terminal to interact with the VM, the SOCKS proxy will
+You can use this terminal to interact with the VM, the SOCKS proxy will
 stay accessible as long as this SSH connection remains open.
 
 Now that we have a ssh connection opened on the VM, the first step we have to
@@ -126,7 +126,7 @@ of this box if you don't want to provide one by yourself.
 
 # Launch the D4 UDP exporter
 
-Ths UDP exporter will ship Maltrail data out of d4 redis queue towards the
+This UDP exporter will ship Maltrail data out of d4 redis queue towards the
 maltrail server.
 
 {% highlight shell %}
@@ -159,7 +159,7 @@ python server.py
 {% highlight shell %}
 screen
 cd ~/maltrail
-sudo python sensor.py --console 2>&1 | d4-goclient -c ~/config.maltrail 
+sudo python sensor.py --console 2>&1 | d4-goclient -c ~/config.maltrail
 {% endhighlight %}
 
 
@@ -175,7 +175,7 @@ ping -c 1 136.161.101.53
 
 and check in maltrail web interface that you get an event.
 
-For more fun, you a web browser proxied by the VM, browse some legit news website and check out maltrail interface ;)
+For more fun, you can use the web browser proxied by the VM, browse some legit news website and check out maltrail interface ;)
 
 ![img](/assets/images/maltrail_web.png "Adding Maltrail Queue")
 
@@ -206,7 +206,7 @@ In order to ship Maltrail data with d4, we need to create the proper configurati
 As we chose **type 2**, we also need a meta-header.json file to describe the data we send:
 
 {% highlight json %}
-{ type: maltrail } 
+{ "type": "maltrail" }
 {% endhighlight %}
 
 
