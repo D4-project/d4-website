@@ -159,7 +159,7 @@ python server.py
 {% highlight shell %}
 screen
 cd ~/maltrail
-sudo python sensor.py --console 2>&1 | d4-goclient -c ~/config.maltrail
+sudo python sensor.py --console 2>&1 | d4-goclient -c ~/conf.maltrail
 {% endhighlight %}
 
 
