@@ -107,7 +107,7 @@ The following table sums up the D4 architecture and how its components interact:
 # Preparation
 
 We distribute a Virtual Machine (VM) for this tutorial (tested under Virtual Box
-6.0&#x2013;please don't use this in production): [Please download from here](https://www.circl.lu/assets/files/D4_DEMO.ova)
+6.0&#x2013;please don't use this in production): [Please download from here](https://www.d4-project.org/D4_DEMO.ova)
 
 ```
 171c0b5f3fd6314a712eb6a24cc7b04dc5373522d55937a826d1af679037699a  D4_DEMO.ova
