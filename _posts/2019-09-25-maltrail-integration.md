@@ -55,10 +55,10 @@ cross untrusted network while guaranteeing confidentiality and authenticity of
 
 # Follow Along
 
-You can use [this virtual machine](https://d4-project.org/D4-maltrail.ova) to follow along.
+You can use [this virtual machine](https://d4-project.org/D4_maltrail.ova) to follow along.
 
 {% highlight shell %}
-TODO put sha256
+a9e0535bdc7d195a152840df59a02dfa49a885c0ef09ad46de3d712a5faaaa4d  D4_maltrail.ova
 {% endhighlight %}
 
 The functioning of D4 requires the opening of several ports on the VM, here is
@@ -159,7 +159,7 @@ python server.py
 {% highlight shell %}
 screen
 cd ~/maltrail
-sudo python sensor.py --console 2>&1 | d4-goclient -c ~/conf.maltrail
+sudo python sensor.py -q --console 2>&1 | d4-goclient -c ~/conf.maltrail
 {% endhighlight %}
 
 
