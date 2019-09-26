@@ -19,12 +19,14 @@ image: assets/images/maltrail.png
 8.  [Appendix B:  Installing and Launching the Maltrail Server](#org16fd70c)
 
 
+# Introduction
+
 [D4-core](https://github.com/D4-project/d4-core) introduced a new feature
 recently: an analyzer to export D4 streams in UDP. This allows to send data out
-of a D4 server into other services that expect UDP: one on such service is
-[Maltrail](https://github.com/stamparm/Maltrail). Building a complete distributed sensor
-network using Maltrail, with D4 project, is really simple. In this blog post, we will explain
-all the steps including a VM if you want to test and evaluate the solution before
+of a D4 server to other services that expect UDP: one such service is
+[Maltrail](https://github.com/stamparm/Maltrail). Using D4 project for building a complete distributed sensor
+network using Maltrail is really simple. In this blog post, we will explain
+all the steps and provide a VM if you want to test and evaluate the solution before
 deploying.
 
 **From Maltrail's README**: Maltrail is a malicious traffic detection system,
@@ -47,11 +49,11 @@ server (i.e. `LOG_SERVER` described in the Configuration section).
 
 ![img](/assets/images/maltrail_arch.png "Maltrail Architecture")
 
-As communications between sensors and server are carried out over UDP, one
-should not push Maltrail traffic over untrusted network without proper
-tunneling. Fortunately, this is exactly what D4 propose to do: in this blogpost,
-we showcase how one can multiplex Maltrail **Sensor<->Server** communications
-into D4, and cross untrusted network while guaranteeing confidentiality and
+As communication between sensors and server are carried out over UDP, one
+should not push Maltrail traffic over untrusted networks without proper
+tunneling. Fortunately, this is exactly what D4 proposes to do: in this blogpost,
+we showcase how one can multiplex Maltrail **Sensor<->Server** communication
+into D4, and cross untrusted networks while guaranteeing confidentiality and
 authenticity of Maltrail data.
 
 
@@ -122,7 +124,7 @@ management" tab. Add a new 254 type and in the "Type Name" box, enter
 
 Move to the bottom of the page and create a queue for the maltrail type by
 clicking on the type field and entering "254", and by clicking "Type Name" field
-and entering "maltrail". Click on the uuid generator button on the left end side
+and entering "maltrail". Click on the UUID generator button on the left end side
 of this box if you don't want to provide one by yourself.
 
 ![img](/assets/images/maltrail_queue.png "Adding Maltrail Queue")
@@ -147,7 +149,7 @@ cd d4-core/server/analyzer/analyzer-d4-export
 
 # Launch the maltrail server
 
-The Maltrail server will receive aggregated data from D4 and provide a web
+The Maltrail server will receive aggregated data from D4 and provides a web
 interface available at <http://127.0.0.1:8338> to explore the trails (default
 credentials: admin:changeme!).
 
