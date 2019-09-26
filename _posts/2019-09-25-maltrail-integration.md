@@ -1,5 +1,5 @@
 ---
-title: "Maltrail integration"
+title: "Building a distributed Maltrail sensor network using D4"
 date: 2019-09-25
 layout: post
 categories:
@@ -22,7 +22,10 @@ image: assets/images/maltrail.png
 [D4-core](https://github.com/D4-project/d4-core) introduced a new feature
 recently: an analyzer to export D4 streams in UDP. This allows to send data out
 of a D4 server into other services that expect UDP: one on such service is
-[Maltrail](https://github.com/stamparm/Maltrail).
+[Maltrail](https://github.com/stamparm/Maltrail). Building a complete distributed sensor
+network using Maltrail, with D4 project, is really simple. In this blog post, we will explain
+all the steps including a VM if you want to test and evaluate the solution before
+deploying.
 
 **From Maltrail's README**: Maltrail is a malicious traffic detection system,
 utilizing publicly available (black)lists containing malicious and/or generally
