@@ -44,12 +44,12 @@ server (i.e. `LOG_SERVER` described in the Configuration section).
 
 ![img](/assets/images/maltrail_arch.png "Maltrail Architecture")
 
-As communications between sensors and server are carried out over UDP one should
-not push Maltrail traffic over untrusted network without encapsulation.
-Fortunately, this is exactly what D4 propose to do: in this blogpost, we
-showcase how one can multiplex Maltrail sensors communications into D4, and
-cross untrusted network while guaranteeing confidentiality and authenticity of
-\`Maltrail\` data.
+As communications between sensors and server are carried out over UDP, one
+should not push Maltrail traffic over untrusted network without proper
+tunneling. Fortunately, this is exactly what D4 propose to do: in this blogpost,
+we showcase how one can multiplex Maltrail **Sensor<->Server** communications
+into D4, and cross untrusted network while guaranteeing confidentiality and
+authenticity of Maltrail data.
 
 
 <a id="orgdbf23be"></a>
@@ -63,7 +63,7 @@ a9e0535bdc7d195a152840df59a02dfa49a885c0ef09ad46de3d712a5faaaa4d  D4_maltrail.ov
 {% endhighlight %}
 
 The functioning of D4 requires the opening of several ports on the VM, here is
-the current setup after importing the .ova file into Virtual Box (VB):
+the current setup after importing the .ova file into Virtual Box (VB**:
 
 |---|---|---|---|
 | Service | Host IP | Host port | Guest port |
@@ -74,8 +74,9 @@ the current setup after importing the .ova file into Virtual Box (VB):
 | Maltrail server | 127.0.0.1 | 8338 | 8338 |
 |---|---|---|---|
 
-This VM already contains all the needed D4 components, that we will now
-configure to set up a full D4-PassiveDNS chain.
+
+This VM already contains all the needed D4 and Maltrail components, that we will
+now configure to set up a full **Maltrail over D4** chain.
 
 For testing purpose (generate HTTP traffic inside the guest VM for maltrail to
 do its job), we will use SSH as a SOCKS5 proxy. Fire up the VM and use a
@@ -109,9 +110,10 @@ interface](https://127.0.0.1:7000).
 
 # Setting up D4 server to receive Maltrail data
 
-Point your (unproxied if you use the VM) to your D4 web interface ([here if you
-use the VM](http://127.0.0.1:7000)). And move to the "server management" tab. Add a new 254 type and in
-the "Type Name" box, entre "maltrail".
+Point your (unproxied if you use the VM) web-browser to D4's web interface
+([here if you use the VM](http://127.0.0.1:7000)). And move to the "server
+management" tab. Add a new 254 type and in the "Type Name" box, enter
+"maltrail".
 
 ![img](/assets/images/maltrail_type.png "Adding Maltrail Type")
 
@@ -174,9 +176,10 @@ The easiest way to ensure that the whole pipeline is in working order is to inpu
 ping -c 1 136.161.101.53
 {% endhighlight %}
 
-and check in maltrail web interface that you get an event.
+and check in Maltrail web interface that you get an event.
 
-For more fun, you can use the web browser proxied by the VM, browse some legit news website and check out maltrail interface ;)
+For additional fun, you can use the web browser proxied by the VM, browse some
+'legit' news website and check out maltrail output ;)
 
 ![img](/assets/images/maltrail_web.png "Adding Maltrail Queue")
 
