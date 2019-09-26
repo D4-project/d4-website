@@ -4,6 +4,7 @@ date: 2019-09-25
 layout: post
 categories:
 tags:
+image: assets/images/maltrail.png
 ---
 
 # Table of Contents
@@ -28,18 +29,18 @@ utilizing publicly available (black)lists containing malicious and/or generally
 suspicious trails, along with static trails compiled from various AV reports and
 custom user defined lists.
 
-Maltrail is based on the Traffic -> Sensor <-> Server <-> Client architecture.
-Sensor(s) is a standalone component running on the monitoring node (e.g. Linux
-platform connected passively to the SPAN/mirroring port or transparently inline
-on a Linux bridge) or at the standalone machine (e.g. Honeypot) where it
-"monitors" the passing Traffic for blacklisted items/trails (i.e. domain names,
-URLs and/or IPs). In case of a positive match, it sends the event details to the
-(central) Server where they are being stored inside the appropriate logging
-directory (i.e. LOG<sub>DIR</sub> described in the Configuration section). If Sensor is
-being run on the same machine as Server (default configuration), logs are stored
-directly into the local logging directory. Otherwise, they are being sent via
-UDP messages to the remote server (i.e. LOG<sub>SERVER</sub> described in the
-Configuration section).
+Maltrail is based on the **Traffic -> Sensor <-> Server <-> Client**
+architecture. **Sensor(s)** is a standalone component running on the monitoring
+node (e.g. Linux platform connected passively to the SPAN/mirroring port or
+transparently inline on a Linux bridge) or at the standalone machine (e.g.
+Honeypot) where it "monitors" the passing **Traffic** for blacklisted
+items/trails (i.e. domain names, URLs and/or IPs). In case of a positive match,
+it sends the event details to the (central) **Server** where they are being
+stored inside the appropriate logging directory (i.e. `LOG_DIR` described in the
+Configuration section). If **Sensor** is being run on the same machine as
+**Server** (default configuration), logs are stored directly into the local
+logging directory. Otherwise, they are being sent via UDP messages to the remote
+server (i.e. `LOG_SERVER` described in the Configuration section).
 
 ![img](/assets/images/maltrail_arch.png "Maltrail Architecture")
 
