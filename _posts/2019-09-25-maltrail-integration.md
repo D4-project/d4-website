@@ -137,8 +137,8 @@ maltrail server.
 
 {% highlight shell %}
 screen
-. d4-core/server/D4ENV/bin/activate
-cd d4-core/server/analyzer/analyzer-d4-export
+. ~/d4-core/server/D4ENV/bin/activate
+cd ~/d4-core/server/analyzer/analyzer-d4-export
 ./d4_export_udp.py -t Maltrail -u uuid-of-your-maltrail-redis-queue -p 8338 -i 127.0.0.1
 {% endhighlight %}
 
