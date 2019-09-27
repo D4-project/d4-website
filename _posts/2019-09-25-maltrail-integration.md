@@ -156,7 +156,7 @@ credentials: admin:changeme!).
 {% highlight shell %}
 screen
 cd ~/maltrail
-python server.py
+sudo python server.py
 {% endhighlight %}
 
 
