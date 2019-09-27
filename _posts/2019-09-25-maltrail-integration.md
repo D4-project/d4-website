@@ -257,3 +257,7 @@ Then you can launch the server:
 {% highlight shell %}
 python server.py
 {% endhighlight %}
+
+**Please reach out to us by filling out an issue on
+[Github](https://github.com/D4-project/d4-website) if you encounter any
+trouble while following this tutorial.**
