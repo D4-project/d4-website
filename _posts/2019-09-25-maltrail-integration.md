@@ -64,7 +64,7 @@ authenticity of Maltrail data.
 You can use [this virtual machine](https://d4-project.org/D4_maltrail.ova) to follow along.
 
 {% highlight shell %}
-4df70e13f8ac740149fd14d880b9aa82b8c3dfa63d3a3960a59428a0995badb1  D4_maltrail.ova
+838bc5d1a973db27ebded9a94ea3b2786b5e86d60eeffb1466e34a6fe3e48c8d  D4_maltrail.ova
 {% endhighlight %}
 
 The functioning of D4 requires the opening of several ports on the VM, here is
@@ -193,7 +193,9 @@ and check in Maltrail web interface that you get an event.
 For additional fun, you can use the web browser proxied by the VM, browse some
 'legit' news website and check out maltrail output ;)
 
-![img](/assets/images/maltrail_web.png "Adding Maltrail Queue")
+![img](/assets/images/maltrail_visited.png "Browsing legit news sites")
+
+![img](/assets/images/maltrail_web.png "Maltrail Output after news sites")
 
 
 <a id="org19e355b"></a>
