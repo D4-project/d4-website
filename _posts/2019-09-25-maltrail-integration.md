@@ -237,5 +237,23 @@ From your home folder:
 {% highlight shell %}
 [[ -d maltrail ]] || git clone https://github.com/stamparm/maltrail.git
 cd maltrail
+{% endhighlight %}
+
+In order to receive update from D4 analyzer, you need to uncomment the following lines
+in maltrail.conf:
+
+{% highlight shell %}
+# Listen address of (log collecting) UDP server
+UDP_ADDRESS 127.0.0.1
+#UDP_ADDRESS ::
+#UDP_ADDRESS fe80::12c3:7bff:fe6d:cf9b%eno1
+
+# Listen port of (log collecting) UDP server
+UDP_PORT 8337
+{% endhighlight %}
+
+Then you can launch the server:
+
+{% highlight shell %}
 python server.py
 {% endhighlight %}
