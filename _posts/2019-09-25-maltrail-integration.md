@@ -164,9 +164,16 @@ sudo python server.py
 
 # Launching Maltrail / D4 sensor
 
+First the Maltrail sensor needs to update its feeds:
 {% highlight shell %}
 screen
 cd ~/maltrail
+sudo python sensor.py --console
+{% endhighlight %}
+
+Once this is done, your sensor is ready to pipe events into D4:
+
+{% highlight shell %}
 sudo python sensor.py -q --console 2>&1 | d4-goclient -c ~/conf.maltrail
 {% endhighlight %}
 
