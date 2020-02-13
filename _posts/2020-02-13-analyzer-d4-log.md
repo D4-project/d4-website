@@ -8,15 +8,15 @@ tags:
 
 # Table of Contents
 
-1.  [Observing ssh failed login attempts](#org806f16a)
-2.  [Shipping the log to D4](#orgc12d2bc)
-3.  [On the server](#org77746e4)
-4.  [Installing analyzer-d4-log](#org9d74c08)
-5.  [Running analyzer-d4-log](#org484d39c)
-6.  [Visualizing the results](#org0c27f2e)
+1.  [Observing ssh failed login attempts](#org7432156)
+2.  [Shipping the log to D4](#org3bca60a)
+3.  [On the server](#org5d91326)
+4.  [Installing analyzer-d4-log](#org6655c79)
+5.  [Running analyzer-d4-log](#orgafca479)
+6.  [Visualizing the results](#orgd5cda11)
 
 
-<a id="org806f16a"></a>
+<a id="org7432156"></a>
 
 # Observing ssh failed login attempts
 
@@ -29,14 +29,14 @@ In the following, we show how easy it is to centralize this monitoring effort to
 server that will compute and display ssh failed login attempt statistics using D4.
 
 
-<a id="orgc12d2bc"></a>
+<a id="org3bca60a"></a>
 
 # Shipping the log to D4
 
 Shipping the logs to D4 is really simple:
 
 {% highlight shell %}
-tail -n2000 -F auth.log | grep sshd | egrep "Invalid user" | /home/adulau/git/d4-core/client/d4 -c /home/adulau/conf-ssh/ | socat - OPENSSL-CONNECT:crq.circl.lu:4443,verify=0,keepalive=1
+tail -n2000 -F auth.log | grep sshd | egrep "Invalid user" | /home/toto/git/d4-core/client/d4 -c /home/toto/conf-ssh/ | socat - OPENSSL-CONNECT:crq.circl.lu:4443,verify=0,keepalive=1
 {% endhighlight %}
 
 |---|---|
@@ -45,7 +45,7 @@ tail -n2000 -F auth.log | grep sshd | egrep "Invalid user" | /home/adulau/git/d4
 | tail -n2000 -F auth.log | follow auth.log file descriptor |
 | grep sshd | matches sshd |
 | egrep "Invalid user" | matches 'Invalid user' |
-| *home/toto/git/d4-core/client/d4 -c /home/adulau/conf-ssh* | encapsulate with d4 [c client](https://github.com/D4-project/d4-core) |
+| *home/toto/git/d4-core/client/d4 -c /home/toto/conf-ssh* | encapsulate with d4 [c client](https://github.com/D4-project/d4-core) |
 | socat - OPENSSL-CONNECT:crq.circl.lu:4443,verify=0,keepalive=1 | ship to d4 server |
 |---|---|
 
@@ -53,7 +53,7 @@ The same could actually be achieve with [the go client](https://github.com/D4-pr
 3: generic log line.
 
 
-<a id="org77746e4"></a>
+<a id="org5d91326"></a>
 
 # On the server
 
@@ -65,7 +65,7 @@ The same could actually be achieve with [the go client](https://github.com/D4-pr
 ![img](/assets/images/analyzer-d4-log-server1.png "Type 3 redis queue")
 
 
-<a id="org9d74c08"></a>
+<a id="org6655c79"></a>
 
 # Installing analyzer-d4-log
 
@@ -89,7 +89,7 @@ Once the installation is finished we need to configure the analyzer by editing t
 |---|---|
 
 
-<a id="org484d39c"></a>
+<a id="orgafca479"></a>
 
 # Running analyzer-d4-log
 
@@ -108,7 +108,7 @@ This will create a screen session called 'alog' with 2 tabs:
 Analyzer's log appear in `analyzer-d4-log.log`.
 
 
-<a id="org0c27f2e"></a>
+<a id="orgd5cda11"></a>
 
 # Visualizing the results
 
