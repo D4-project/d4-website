@@ -28,6 +28,8 @@ to monitor.
 In the following, we show how easy it is to centralize this monitoring effort to a central
 server that will compute and display ssh failed login attempt statistics using D4.
 
+The advantage of such solution is to solely rely on the default logging of OpenSSH servers without the need to install honeypots or similar technologies. This model
+can be applied with different sources of logging.
 
 <a id="org3bca60a"></a>
 
