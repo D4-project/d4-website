@@ -1,0 +1,23 @@
+{% if include.image-size %}
+{% assign size=include.image-size %}
+{% else %}
+{% assign size='100' %}
+{% endif %}
+
+<div style="text-align:center;">
+
+{% for image in include.images %}
+
+<div style="display: inline-block;width: {{ size }}px;height: {{ size }}px; margin: 5px;">
+{% include image.html
+	gallery=include.gallery
+	url=image.url
+	alt=image.alt
+	caption=image.caption
+%}
+</div>
+
+{% endfor %}
+
+</div>
+<br>
