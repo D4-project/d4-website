@@ -100,7 +100,7 @@ with code, but would be less identifiable by the human eye because the
 ISN number would change more often. There are also more advanced
 possible techniques, but it is not the subject of this post.
 
-# Statitics
+# Statistics
 At D4, we have some packet captures coming from a black hole. A black
 hole is a monitoring network that has never been announced. As such, it
 should never receive traffic, except for Internet scans, mistaken
