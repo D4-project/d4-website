@@ -1,0 +1,12 @@
+<div style="text-align: center;">
+    <figure class="image">
+        {% if include.gallery %}
+        <a data-fancybox="{{ include.gallery }}" href="{{ include.url }}">
+        {% endif %}
+        <img src="{{ include.url }}" alt="{{ include.alt }}">
+        {% if include.gallery %}
+        </a>
+        {% endif %}
+        <figcaption style="font-style: italic;">{{ include.caption }}</figcaption>
+    </figure>
+</div>

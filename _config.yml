@@ -21,6 +21,11 @@ authors:
     web: https://www.circl.lu/
     twitter: https://twitter.com/d4_project
     description: "Computer Incident Response Center Luxembourg (CIRCL)"
+  alexis:
+    name: Alexis Lecocq
+    display_name: Alexis Lecocq
+    gravatar: 9e20e0afa2f69dd5b61eb3e9cc88ecac
+    web: https://be.linkedin.com/in/lecocqalexis
 #  john:
 #    name: John
 #    display_name: John

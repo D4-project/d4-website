@@ -1,0 +1,11 @@
+
+{% if include.position == 'right' %}
+{% assign style='float:right; margin: 10px; margin-right:0;' %}
+{% else %}
+{% assign style='float:left; margin: 10px; margin-left:0;' %}
+{% endif %}
+
+<img
+  style="{{ style }}"
+  src="{{ include.url }}"
+  alt="{{ include.alt }}">
