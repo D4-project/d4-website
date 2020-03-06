@@ -8,22 +8,22 @@ image: assets/images/earth.jpg
 
 A few years ago, the
 [Mirai](https://en.wikipedia.org/wiki/Mirai_(malware))
-botnet was talked about because he caused a few major
+botnet was talked about because it caused a few major
 [DDoS](https://en.wikipedia.org/wiki/Denial-of-service_attack#Distributed_attack)
 attacks around August 2016. The author later released the source code
 on [hackforums](https://hackforums.net/showthread.php?tid=5420472)
-under the name **Anna-senpai**. The source code is now available on
+under the name **Anna-senpai**. The source code of it is now available on
 [GitHub](https://github.com/jgamblin/Mirai-Source-Code).
 
 Mirai botnet included a few innovative ideas that allowed it to spread
 blazing fast. One of them was to use a stateless port scanner.
-Stateless means that no state is kept during port scan and so, no memory
+Stateless means that no state is kept during a port scan, and so, no memory
 needs to be used. This allows even low-spec hardware with few available
 memory (such as IoT devices) to scan a large number of IPs.
 
 # TCP Handshake
 
-If you are unfamiliar with the TCP handshake, I recommend you to read the nice
+If you are unfamiliar with the TCP handshake, I recommend you reading the following
 [Wikipedia](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Connection_establishment)
 article about it. Here's a small reminder:
 
@@ -49,7 +49,7 @@ is called the ISN2.
 According to the [TCP RFC](https://tools.ietf.org/html/rfc793#page-27),
 when a client initiates a connection to a server, it should use an ISN
 generator *which selects a new 32 bit ISN*. The generated number, then
-needs to be saved on the client side, waiting for the SYN+ACK from the
+needs to be saved on the client-side, waiting for the SYN+ACK from the
 server. The
 [Mirai ISN generator](https://github.com/jgamblin/Mirai-Source-Code/blob/3273043e1ef9c0bb41bd9fcdc5317f7b797a2a94/mirai/bot/scanner.c#L225)
 is very simple:
@@ -71,10 +71,10 @@ the SYN+ASK this way:
 	caption="Mirai Sequence number check"
 %}
 
-When Mirai scanner receives a valid TCP SYN+ACK, it then opens a socket
-using the built-in TCP API so ISN are then managed by the operating system.
-This way, connections kept in memory are only connections to open
-ports and memory is not wasted with half-opened TCP connections.
+When a Mirai scanner receives a valid TCP SYN+ACK, it opens a socket
+using the built-in TCP API, so the ISN is managed by the operating system.
+This way, the connections kept in memory are only connections to open
+ports, and memory is not wasted with half-open TCP connections.
 
 
 # Identification
@@ -97,15 +97,14 @@ Indeed, the initial Mirai scanner was only looking at port `23` (9 out of
 An easy fix to get the scanner less identifiable is to XOR the
 destination IP with source IP. This pattern is still trivial to check
 with code, but would be less identifiable by the human eye because the
-ISN number would change more often. There are also more advanced
-possible techniques, but it is not the subject of this post.
+ISN number would change more often.
 
 # Statistics
 At D4, we have some packet captures coming from a black hole. A black
 hole is a monitoring network that has never been announced. As such, it
 should never receive traffic, except for Internet scans, mistaken
 systems and spoofed requests' backscatter. By curiosity, we were
-wondering how used is the Mirai scanner trick and which ports are the
+wondering how the Mirai scanner trick is used and which ports are
 most targeted. We made a few statistics with data collected from
 **2020-01-16** to **2020-02-26** for a total of **42** days. Here are
 the most interesting ones:
@@ -123,10 +122,10 @@ The winner is port 37215 with 96.35% of Mirai-like scan:
 Scan of port 37215 mainly targets
 [CVE-2017-17215](https://cve.circl.lu/cve/CVE-2017-17215)
 affecting the router Huawei HG532 with unpatched firmware, making it
-possible for a remote user to execute arbitrary shell commands. Official
-security notice is available
+possible for a remote user to execute arbitrary shell commands. The
+official security notice is available
 [here](https://www.huawei.com/en/psirt/security-notices/huawei-sn-20171130-01-hg532-en).
-A further analysis is available
+Further analysis is available
 [here](https://medium.com/@knownsec404team/huawei-hg532-series-router-remote-command-execution-analyzation-a531d96d5339).
 
 
@@ -150,13 +149,13 @@ This is in sync with
 	caption="ISC Scanning data of port 9530"
 %}
 
-This scan happens a few days after the
+This scan happened a few days after the
 [full disclosure](https://habr.com/en/post/486856/)
 of a 0-day vulnerability affecting Xiongmai *security* camera from
-Vladislav Yarmak in February, 4. This vulnerability allows an attacker
+Vladislav Yarmak on 4 February 2020. This vulnerability allows an attacker
 to open a Telnet daemon on port 9527. Connecting with default
-credentials, an attacker can execute shell commands as root. Official
-security notice is available
+credentials, an attacker can execute shell commands as root. The
+official security notice is available
 [here](http://www.xiongmaitech.com/en/index.php/news/info/12/68).
 
 PS: according to an
@@ -171,8 +170,8 @@ ones widely used for device administration. If the device's owner did not
 change the administration password, there is a chance the valid password
 will be hardcoded and weak. Even if the password is complex, there is a
 chance the HTTP server is old and is subject to a public vulnerability,
-as we will see [later](#port-4567).
-Anyway, the Mirai-like scanner developed a massive interest in those in
+as we will see it [later](#port-4567).
+The Mirai-like scanner developed a massive interest in those in
 January. In February, a few ports are forsaken: **82**, **83**, **85**
 and **8081**. We can guess the success rate was not high enough:
 
@@ -208,7 +207,7 @@ routers. We can find really old complaints about that back to
 or more recently in
 [2019 for Plusnet](https://community.plus.net/t5/My-Router/Ports-4567-and-6161-on-Plusnet-Hub-One-open/td-p/1688887).
 As we can see, this feature looks quite standard and is widely used. What
-about the security? Here's an overview:
+about security? Here's an overview:
 
 {% include image.html
 	url="/assets/images/tr-069-security.png"
@@ -220,7 +219,7 @@ The protocol makes use of a shared secret between the Customer Premise
 Equipment (CPE) and the Auto-Configuration Server (ACS) but gives no
 hint about the exchange of the secret. Because it is not standard, not
 all ISPs will have the same way of exchanging the secret. We can
-assume some may take the easy way out and use common default password
+assume some may take the easy way out and use a common default password
 for all devices.
 
 Even when secure and unique passwords are used, some devices make use of
@@ -233,7 +232,7 @@ is now publicly available since 2016.
 
 
 ## Telnet ports 23(23)?
-Unsurprisingly, because it was the original Mirai target ports, Telnet
+Unsurprisingly, since it was the original Mirai target ports, Telnet
 ports **23** and **2323** have a very high Mirai-like rate:
 
 {% include gallery.html
@@ -246,12 +245,12 @@ This port is used by the
 [Android Debug Bridge (ADB)](https://developer.android.com/studio/command-line/adb)
 daemon on Android devices. As its name suggests, it is used for
 debugging purposes. Stock Android does not allow debugging by default.
-The user has first to enable USB debugging in the hidden developer menu
+The user has to enable USB debugging first in the hidden developer menu
 and then run `tcpip` command over USB to
 [enable network debugging](https://developer.android.com/studio/command-line/adb#wireless)
 . Moreover, Android 4.2.2,
 [released in February 2013](https://developer.android.com/studio/releases/platforms#revision-2-february-2013),
-added a security layer: user has to unlock the device and accept the
+added a security layer: the user has to unlock the device and accept the
 USB connection. It is hardly possible that a large number of users ran
 through all those steps to generate that interest:
 
@@ -270,7 +269,7 @@ shipped Android devices with the network ADB bridge enabled and
 unauthenticated. Most devices are phones and TVs. Massive scans
 targeting this port started back in February 2018. At that time, the
 malware was using
-infected devices to mine cryptocurrencies. I doubt that your TV or
+infected devices to mine cryptocurrencies. I doubt that a TV or a
 smartphone is very efficient for this job, but maybe this was profitable
 on a large scale. We can also find other analyses
 [from TrendMicro](https://blog.trendmicro.com/trendlabs-security-intelligence/open-adb-ports-being-exploited-to-spread-possible-satori-variant-in-android-devices/)
@@ -307,7 +306,7 @@ Telnet on this port.
 %}
 
 During the next few weeks, we have planned to set up a few honeypots to
-emulate vulnerable devices and receive interesting attacks. We hope to
+emulate vulnerable devices and carry out interesting attacks. We hope to
 get more information about the current botnet ecosystem to confirm or
 invalidate our thoughts.
 
@@ -318,7 +317,7 @@ invalidate our thoughts.
 	alt="Idea"
 %}
 
-For non described ports, we are still unsure about what kind of hardware
+For non-described ports, we are still unsure about what kind of hardware
 the attacker is trying to detect. If you have any idea about that, feel
 free to contact us at [d4@circl.lu](mailto:d4@circl.lu).
 
