@@ -3,7 +3,7 @@ title: "Monitoring botnets that use Tor proxies"
 date: 2021-04-20
 layout: post
 categories: 
-tags: 
+image: assets/images/graph-botnet-tor.png
 ---
 
 
