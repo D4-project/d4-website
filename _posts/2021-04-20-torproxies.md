@@ -24,7 +24,7 @@ infrastructure.
 For almost 6 months we operated one of such HTTP to Tor proxy to get a sense of
 the characteristics of the traffic that go through them.
 
-We gave a talk "Industrialize the Tracking of Botnet Operations – A Practical Case with Large Coin-Mining Threat-Actor(s)" at at [FIRST CTI SIG summit 2021](https://www.first.org/events/web/cti-sig-summit-2021/) about the topic.
+We gave a talk "Industrialize the Tracking of Botnet Operations – A Practical Case with Large Coin-Mining Threat-Actor(s)" at [FIRST CTI SIG summit 2021](https://www.first.org/events/web/cti-sig-summit-2021/) about the topic.
 - The [supporting slides](/assets/slides/20210419-FIRST-torproxies.pdf)
 - and the open source [analysis software](https://github.com/d4-project/d4-pretensor) part of the D4 Project.
 
