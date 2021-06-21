@@ -8,7 +8,11 @@ The project's goal is to provide a constant and reliable view of Distributed Den
 
 ## Practical overview
 
-Building a large-scale network sensor can be a tedious task, the aim of the D4 Project is to make the creation and maintenance of such network simple and efficient. To reach the goal, the D4 project will develop open source components required to operate such network sensor and will live test the infrastructure with an DDoS and malicious activities sensor network deployed on a voluntary basis.
+Building a large-scale network sensor can be a tedious task, the aim of the D4 Project is to make the creation and maintenance of such network simple and efficient. To reach the goal, the D4 project develops open source components required to operate such network sensor and monitor malicious activities through a sensor network deployed on a voluntary basis.
+
+## Legal aspects
+
+D4 project's legal aspects in the context of GDPR are analyzed in the [following report](/assets/lsra-report.pdf).
 
 ## Funding
 
