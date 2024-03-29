@@ -8,9 +8,9 @@ title: Contact
 ~~~~
   D4 Project
   CIRCL - Computer Incident Response Center Luxembourg
-  c/o "security made in Lëtzebuerg" (SMILE) g.i.e.
-  16, bd d'Avranches
-  L-1160 Luxembourg
+  c/o "Luxembourg House of Cybersecurity" g.i.e.
+  122, rue Adolphe Fischer
+  L-1521 Luxembourg
   Grand-Duchy of Luxembourg
 ~~~~
 
