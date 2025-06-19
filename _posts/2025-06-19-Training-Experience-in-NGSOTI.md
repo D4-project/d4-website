@@ -5,7 +5,7 @@ layout: post
 categories: 
 ---
 
-# Our Experience and Key Takeaways from Trainins within the NGSOTI EU Funded Project
+# Our Experience and Key Takeaways from Trainings within the NGSOTI EU Funded Project
 
 We are glad to share the overwhelmingly positive outcomes and valuable insights gained from our participation in the [NGSOTI (Next Generation Security Operations and Threat Intelligence) EU Funded Project](https://github.com/ngsoti/). The project has been a resounding success, allowing us to engage with a diverse audience and make significant strides in cybersecurity education and training.
 
