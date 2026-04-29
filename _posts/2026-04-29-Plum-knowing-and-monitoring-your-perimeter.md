@@ -5,9 +5,6 @@ layout: post
 categories: 
 ---
 
-# Plum: knowing and monitoring your perimeter
-
-
 [Plum](https://github.com/D4-project/Plum-Island/tree/v0.2604.0), for *Proactive Land Uncovering & Monitoring*, is an orchestration tool to learn, monitor, and document an exposure surface. It coordinates work between scanning agents, keeps historical results, and makes observations searchable over time.
 
 This project, part of D4 which was initialy co-funded by the European Union, is still young, but it already addresses a concrete need: helping CIRCL to keep a global view of Luxembourg's IP space, especially in the context of NIS2-related activities. The goal is not only to scan, but to maintain actionable knowledge of the national perimeter, its visible exposures and allows vulnerability discovery in the context of incident response.
